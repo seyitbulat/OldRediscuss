@@ -1,13 +1,21 @@
 ﻿using Infrastructure.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Rediscuss.Model.Entities
 {
 	public class Post : IEntity
 	{
+		public int PostId { get; set; }
+		public string PostTitle { get; set; }
+		public string PostBody { get; set; }
+		public string PostImage { get; set; }
+		public DateTime CreatedAt { get; set; }
+		public int CreatedBy { get; set; }
+		public int SubredisId { get; set; }
+
+		// Navigation Properites
+
+		public List<Comment> Comments { get; set; }
+		public User User { get; set; }
+		public List<Vote> Votes { get; set; }
 	}
 }
