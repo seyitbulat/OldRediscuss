@@ -1,3 +1,5 @@
+using Rediscuss.Business;
+
 namespace Rediscuss.WebApi
 {
 	public class Program
@@ -12,7 +14,7 @@ namespace Rediscuss.WebApi
 			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
-
+			builder.Services.AddBusinessServices();
 			var app = builder.Build();
 
 			// Configure the HTTP request pipeline.
