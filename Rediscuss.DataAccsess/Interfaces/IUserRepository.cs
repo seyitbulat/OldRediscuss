@@ -7,5 +7,6 @@ namespace Rediscuss.DataAccsess.Interfaces
 	public interface IUserRepository : IBaseRepository<User>
 	{
 		Task<User> GetByIdAsync(int id);
+		Task<List<User>> GetUserNamesAsync();
 	}
 }

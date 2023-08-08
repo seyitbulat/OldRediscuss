@@ -8,9 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Rediscuss.DataAccsess\Rediscuss.DataAccsess.csproj" />
     <ProjectReference Include="..\Rediscuss.Model\Rediscuss.Model.csproj" />
   </ItemGroup>
 

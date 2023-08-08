@@ -12,5 +12,10 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 		{
 			return await GetAsync(u => u.UserId == id);
 		}
+		
+		public async Task<List<User>> GetUserNamesAsync()
+		{
+			return await GetColumnAsync(u => new User { Username = u.Username });
+		}
 	}
 }
