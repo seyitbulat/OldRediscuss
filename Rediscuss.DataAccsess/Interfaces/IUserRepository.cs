@@ -8,5 +8,6 @@ namespace Rediscuss.DataAccsess.Interfaces
 	{
 		Task<User> GetByIdAsync(int id);
 		Task<List<User>> GetUserNamesAsync();
+		Task<List<User>> GetEmailAsync();
 	}
 }

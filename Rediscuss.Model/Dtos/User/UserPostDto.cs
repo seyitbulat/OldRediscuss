@@ -1,4 +1,5 @@
 ﻿using Infrastructure.Model;
+using System.ComponentModel.DataAnnotations;
 
 namespace Rediscuss.Model.Dtos.User
 {

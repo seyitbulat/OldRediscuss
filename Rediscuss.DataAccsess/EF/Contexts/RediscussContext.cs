@@ -5,6 +5,11 @@ namespace Rediscuss.DataAccsess.EF.Contexts
 {
 	public class RediscussContext : DbContext
 	{
+		protected override void OnModelCreating(ModelBuilder modelBuilder)
+		{
+			modelBuilder.Entity<Join>()
+				.HasKey(join => new {join.UserId, join.SubredisId});
+		}
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(@"Server=localhost\SQLEXPRESS;Database=Rediscuss;Trusted_Connection=True;");

@@ -5,7 +5,7 @@ namespace Rediscuss.Model.Entities
 	public class Join : IEntity
 	{
         public int UserId { get; set; }
-        public int Subredisid { get; set; }
+        public int SubredisId { get; set; }
         public DateTime JoinedAt { get; set; }
 
         // Navigation Property

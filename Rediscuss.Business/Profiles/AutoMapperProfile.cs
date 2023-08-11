@@ -8,7 +8,9 @@ namespace Rediscuss.Business.Profiles
 	{
         public AutoMapperProfile()
         {
-            CreateMap<UserGetDto, User>();
+            CreateMap<User, UserGetDto>();
+            CreateMap<UserPostDto, User>();
+            
         }
     }
 }
