@@ -5,7 +5,7 @@ using Rediscuss.Model.Entities;
 
 namespace Rediscuss.DataAccsess.EF.Repositories
 {
-	public class PostRepository : BaseRepository<Post, RediscussContext>, IPostsRepository
+	public class PostRepository : BaseRepository<Post, RediscussContext>, IPostRepository
 	{
 		public Task<List<Post>> GetByBodyAsync(string body)
 		{
@@ -21,6 +21,11 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 		public Task<Post> GetByIdAsync(int id)
 		{
 			return GetAsync(p => p.PostId == id);
+		}
+
+		public Task<List<Post>> GetBySubredisIdAsync(int subredisId)
+		{
+			return GetAllAsync(p => p.SubredisId == subredisId);
 		}
 
 		public Task<List<Post>> GetByTitleAsync(string title)

@@ -8,9 +8,9 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 {
 	public class UserRepository : BaseRepository<User, RediscussContext>, IUserRepository
 	{
-		public async Task<User> GetByIdAsync(int id)
+		public async Task<User> GetByIdAsync(int id, params string[] includeList)
 		{
-			return await GetAsync(u => u.UserId == id);
+			return await GetAsync(u => u.UserId == id, includeList);
 		}
 		
 		public async Task<List<User>> GetUserNamesAsync()
@@ -21,6 +21,11 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 		public async Task<List<User>> GetEmailAsync()
 		{
 			return await GetColumnAsync(u => new User { Email = u.Email});
+		}
+
+		public async Task<List<User>> GetAllsAsync(params string[] includeList)
+		{
+			return await GetAllAsync(includeList: includeList);
 		}
 	}
 }

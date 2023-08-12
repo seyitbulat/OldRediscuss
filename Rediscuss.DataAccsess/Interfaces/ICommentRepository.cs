@@ -5,7 +5,7 @@ namespace Rediscuss.DataAccsess.Interfaces
 {
 	public interface ICommentRepository : IBaseRepository<Comment>
 	{
-		Task<Comment> GetByIdAsync(Comment comment);
-		List<Task<Comment>> GetAllAsync(); 
+		Task<Comment> GetByIdAsync(int id, params string[] includeList);
+		Task<List<Comment>> GetByPostIdAsync(int postId, params string[] includeList);
 	}
 }

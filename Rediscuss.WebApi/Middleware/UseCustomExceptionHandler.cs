@@ -20,7 +20,7 @@ namespace Rediscuss.WebApi.Middleware
 
 					switch (exceptionFeature.Error)
 					{
-						case BadRequesException:
+						case BadRequestException:
 							statusCode = StatusCodes.Status400BadRequest; 
 							break;
 						case NotFoundException:

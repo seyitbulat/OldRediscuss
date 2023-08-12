@@ -47,13 +47,29 @@ namespace Rediscuss.Business.Implementations
 			throw new BadRequesException("Enter the user information to add");
 		}
 
-		public async Task<ApiResponse<UserGetDto>> GetByIdAsync(int id)
+		public Task<ApiResponse<NoData>> DeleteUserAsync(int id)
+		{
+			throw new NotImplementedException();
+		}
+
+		public async Task<ApiResponse<List<UserGetDto>>> GetAllUsers(params string[] includeList)
+		{
+			var users = await _repo.GetAllsAsync();
+			if(users != null)
+			{
+				var dtoList = _mapper.Map<List<UserGetDto>>(users);
+				return ApiResponse<List<UserGetDto>>.Success(StatusCodes.Status200OK, dtoList);
+			}
+			throw new NotFoundException("Users not found");
+		}
+
+		public async Task<ApiResponse<UserGetDto>> GetByIdAsync(int id, params string[] includeList)
 		{
 			if (id < 0)
 				throw new BadRequesException("Id cannot be negative");
 			if (id == null)
 				throw new BadRequesException("Enter an id");
-			var user = await _repo.GetByIdAsync(id);
+			var user = await _repo.GetByIdAsync(id, includeList);
 			if (user != null)
 			{
 				var dto = _mapper.Map<UserGetDto>(user);

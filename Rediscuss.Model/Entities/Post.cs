@@ -16,6 +16,7 @@ namespace Rediscuss.Model.Entities
 
 		public List<Comment> Comments { get; set; }
 		public User User { get; set; }
+		public Subredis Subredis { get; set; }
 		public List<Vote> Votes { get; set; }
 	}
 }
