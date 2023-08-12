@@ -29,11 +29,11 @@ namespace Rediscuss.Business.Implementations
 			var emails = await _repo.GetEmailAsync();
 
 			if (usernames.Where(u => u.Username == dto.Username).Count() > 0)
-				throw new BadRequesException("This username is already in use");
+				throw new BadRequestException("This username is already in use");
 			if (usernames.Where(u => u.Email == dto.Email).Count() > 0)
-				throw new BadRequesException("This email is already in use");
+				throw new BadRequestException("This email is already in use");
 			if (dto.Username.Length < 3)
-				throw new BadRequesException("The username cannot be less than 3 characters");
+				throw new BadRequestException("The username cannot be less than 3 characters");
 
 
 			if (dto != null)
@@ -44,7 +44,7 @@ namespace Rediscuss.Business.Implementations
 				await _repo.InsertAsync(user);
 				return ApiResponse<User>.Success(StatusCodes.Status201Created,user);
 			}
-			throw new BadRequesException("Enter the user information to add");
+			throw new BadRequestException("Enter the user information to add");
 		}
 
 		public Task<ApiResponse<NoData>> DeleteUserAsync(int id)
@@ -66,9 +66,9 @@ namespace Rediscuss.Business.Implementations
 		public async Task<ApiResponse<UserGetDto>> GetByIdAsync(int id, params string[] includeList)
 		{
 			if (id < 0)
-				throw new BadRequesException("Id cannot be negative");
+				throw new BadRequestException("Id cannot be negative");
 			if (id == null)
-				throw new BadRequesException("Enter an id");
+				throw new BadRequestException("Enter an id");
 			var user = await _repo.GetByIdAsync(id, includeList);
 			if (user != null)
 			{

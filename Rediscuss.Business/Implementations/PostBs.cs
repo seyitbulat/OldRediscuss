@@ -20,6 +20,8 @@ namespace Rediscuss.Business.Implementations
 			_repo = repo;
 			_mapper = mapper;
 		}
+
+
 		public async Task<ApiResponse<List<PostGetDto>>> GetByBodyAsync(string body)
 		{
 			if (body == null)

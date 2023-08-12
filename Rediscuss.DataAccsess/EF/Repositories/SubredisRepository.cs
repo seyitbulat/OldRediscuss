@@ -14,7 +14,7 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 
 		public Task<Subredis> GetByIdAsync(int id, params string[] includeList)
 		{
-			throw new NotImplementedException();
+			return GetAsync(s => s.SubredisId == id, includeList);
 		}
 
 		public Task<List<Subredis>> GetByNameAsync(string name, params string[] includeList)

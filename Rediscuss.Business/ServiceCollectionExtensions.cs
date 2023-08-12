@@ -16,6 +16,12 @@ namespace Rediscuss.Business
 			service.AddScoped<IUserRepository, UserRepository>();
 			service.AddScoped<IUserBs, UserBs>();
 
+			service.AddScoped<ISubredisRepository, SubredisRepository>();
+			service.AddScoped<ISubredisBs, SubredisBs>();
+
+			service.AddScoped<IPostRepository, PostRepository>();
+			service.AddScoped<IPostBs, PostBs>();
+
 			service.AddScoped<ILoggerBs, LoggerBs>();
 			LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(),"/nlog.config"));
 			service.ConfigureLoggerService();

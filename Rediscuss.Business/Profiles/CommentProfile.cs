@@ -10,7 +10,7 @@ namespace Rediscuss.Business.Profiles
         public CommentProfile()
         {
             CreateMap<Comment, CommentGetDto>();
-            CreateMap<Comment, CommentPostDto>();
+            CreateMap<CommentPostDto, Comment>();
         }
     }
 }

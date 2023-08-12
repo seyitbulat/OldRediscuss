@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Rediscuss.Model.Dtos.Join
 {
-	internal class JoinGetDto
+	public class JoinGetDto
 	{
+		public int UserId { get; set; }
+		public int SubredisId { get; set; }
+		public DateTime JoinedAt { get; set; }
 	}
 }

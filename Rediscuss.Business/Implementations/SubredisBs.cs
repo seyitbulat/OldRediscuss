@@ -4,15 +4,8 @@ using Microsoft.AspNetCore.Http;
 using Rediscuss.Business.CustomExceptions;
 using Rediscuss.Business.Interfaces;
 using Rediscuss.DataAccsess.Interfaces;
-using Rediscuss.Model.Dtos.Post;
 using Rediscuss.Model.Dtos.Subredis;
 using Rediscuss.Model.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 
 namespace Rediscuss.Business.Implementations
 {
@@ -51,6 +44,17 @@ namespace Rediscuss.Business.Implementations
 				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
 			}
 			throw new NotFoundException("No suitable subredis was found based on the ID entered.");
+		}
+
+		public async Task<ApiResponse<List<SubredisGetDto>>> GetAllAsync()
+		{
+			var subredis = await _repo.GetAllAsync();
+			if(subredis != null)
+			{
+				var dtoList = _mapper.Map<List<SubredisGetDto>>(subredis);
+				return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dtoList);
+			}
+			throw new NotFoundException("Subredis not found");
 		}
 
 		public async Task<ApiResponse<List<SubredisGetDto>>> GetByDescriptionAsync(string description, params string[] includeList)

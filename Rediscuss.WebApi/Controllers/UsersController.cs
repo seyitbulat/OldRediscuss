@@ -17,17 +17,24 @@ namespace Rediscuss.WebApi.Controllers
 		}
 
 		[HttpGet("{id}")]
-		public async Task<IActionResult> GetById([FromRoute] int id)
+		public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
 		{
 			var response = await _userBs.GetByIdAsync(id);
 			return await SendResponse(response);
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> InsertUser([FromBody] UserPostDto dto)
+		public async Task<IActionResult> AddUserAsync([FromBody] UserPostDto dto)
 		{
 			var response = await _userBs.AddUserAsync(dto);
-			return CreatedAtAction(nameof(GetById), new { id = response.Data.UserId }, response.Data);
+			return CreatedAtAction(nameof(GetByIdAsync), new { id = response.Data.UserId }, response.Data);
+		}
+
+		[HttpDelete]
+		public async Task<IActionResult> DeleteUserAsync([FromQuery] int id)
+		{
+			var response = await _userBs.DeleteUserAsync(id);
+			return await SendResponse(response);
 		}
 	}
 }
