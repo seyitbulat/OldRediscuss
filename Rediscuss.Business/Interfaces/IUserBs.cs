@@ -10,5 +10,7 @@ namespace Rediscuss.Business.Interfaces
 		Task<ApiResponse<List<UserGetDto>>> GetAllUsers(params string[] includeList);
 		Task<ApiResponse<User>> AddUserAsync(UserPostDto dto);
 		Task<ApiResponse<NoData>> DeleteUserAsync(int id);
+
+		Task<ApiResponse<UserGetDto>> Login(string userName, string password);
 	}
 }

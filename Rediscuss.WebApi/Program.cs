@@ -1,5 +1,10 @@
+using Autofac.Core;
+using FluentValidation.AspNetCore;
+using Microsoft.Extensions.Configuration;
 using Rediscuss.Business;
 using Rediscuss.WebApi.Middleware;
+using System.Reflection;
+using System.Text.Json.Serialization;
 
 namespace Rediscuss.WebApi
 {
@@ -11,12 +16,9 @@ namespace Rediscuss.WebApi
 
 			// Add services to the container.
 
-			builder.Services.AddControllers();
-			// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-			builder.Services.AddEndpointsApiExplorer();
-			builder.Services.AddSwaggerGen();
-
+			builder.Services.AddApiService(builder.Configuration);
 			builder.Services.AddBusinessServices();
+
 
 			var app = builder.Build();
 

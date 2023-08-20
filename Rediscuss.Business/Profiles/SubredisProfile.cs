@@ -13,7 +13,8 @@ namespace Rediscuss.Business.Profiles
 	{
         public SubredisProfile()
         {
-            CreateMap<Subredis, SubredisGetDto>();
+            CreateMap<Subredis, SubredisGetDto>()
+                .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserId));
             CreateMap<SubredisPostDto, Subredis>();
         }
     }

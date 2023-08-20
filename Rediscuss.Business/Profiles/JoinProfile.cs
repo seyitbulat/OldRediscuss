@@ -8,10 +8,9 @@ namespace Rediscuss.Business.Profiles
 	{
         public JoinProfile()
         {
-            CreateMap<Join, JoinGetDto>()
-                .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.User.UserId))
-                .ForMember(dest => dest.SubredisId, opt => opt.MapFrom(src => src.Subredis.SubredisId));
-
+            CreateMap<Join, JoinGetDto>();
+                
+                
             CreateMap<JoinPostDto, Join>();
             CreateMap<JoinPutDto, Join>();
 		}

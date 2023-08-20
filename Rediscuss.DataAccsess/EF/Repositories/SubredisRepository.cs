@@ -22,9 +22,6 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 			return GetAllAsync(s => s.SubredisName.ToLower().Contains(name.ToLower()), includeList);
 		}
 
-		public Task<List<Subredis>> GetByJoinedUsers(int subredisId, params string[] includeList)
-		{
-			throw new NotImplementedException();
-		}
+		
 	}
 }

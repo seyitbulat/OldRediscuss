@@ -7,20 +7,27 @@ using Rediscuss.Business.CustomExceptions;
 using Infrastructure.Utilities.ApiResponses;
 using Microsoft.AspNetCore.Http;
 using NLog;
+using FluentValidation;
+using Rediscuss.Business.Validators;
+using System.ComponentModel.DataAnnotations;
+using Rediscuss.Business.FIlters;
+using Rediscuss.Business.Validators.DtoValidators;
 
 namespace Rediscuss.Business.Implementations
 {
-	public class UserBs : IUserBs
+    public class UserBs : IUserBs
 	{
 		private readonly IUserRepository _repo;
 		private readonly IMapper _mapper;
 		private readonly ILoggerBs _logger;
+		private readonly IValidate<UserPostDto, UserValidator> _validator;
 
-		public UserBs(IUserRepository repo, IMapper mapper, ILoggerBs logger)
+		public UserBs(IUserRepository repo, IMapper mapper, ILoggerBs logger, IValidate<UserPostDto, UserValidator> validator)
 		{
 			_repo = repo;
 			_mapper = mapper;
 			_logger = logger;
+			_validator = validator;
 		}
 
 		public async Task<ApiResponse<User>> AddUserAsync(UserPostDto dto)
@@ -28,12 +35,12 @@ namespace Rediscuss.Business.Implementations
 			var usernames = await _repo.GetUserNamesAsync();
 			var emails = await _repo.GetEmailAsync();
 
+			_validator.Valid(dto);
+			
 			if (usernames.Where(u => u.Username == dto.Username).Count() > 0)
 				throw new BadRequestException("This username is already in use");
 			if (usernames.Where(u => u.Email == dto.Email).Count() > 0)
 				throw new BadRequestException("This email is already in use");
-			if (dto.Username.Length < 3)
-				throw new BadRequestException("The username cannot be less than 3 characters");
 
 
 			if (dto != null)
@@ -47,9 +54,18 @@ namespace Rediscuss.Business.Implementations
 			throw new BadRequestException("Enter the user information to add");
 		}
 
-		public Task<ApiResponse<NoData>> DeleteUserAsync(int id)
+		public async Task<ApiResponse<NoData>> DeleteUserAsync(int id)
 		{
-			throw new NotImplementedException();
+			if (id < 0)
+				throw new BadRequestException("Id cannot be negative");
+
+			var user = await _repo.GetByIdAsync(id);
+			if(user != null)
+			{
+				await _repo.DeleteAsync(user);
+				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
+			}
+			throw new NotFoundException("User not found");
 		}
 
 		public async Task<ApiResponse<List<UserGetDto>>> GetAllUsers(params string[] includeList)
@@ -77,6 +93,21 @@ namespace Rediscuss.Business.Implementations
 			}
 			_logger.LogInfo($"User with id:{id} could not found");
 			throw new NotFoundException("User not found");
+		}
+
+		public async Task<ApiResponse<UserGetDto>> Login(string userName, string password)
+		{
+			userName = userName.Trim();
+			if(userName == null || password == null)
+				throw new BadRequestException("username or password cannot be null");
+
+			var user = await _repo.GetByUserNameAndPassword(userName, password);
+			if(user != null)
+			{
+				var dto = _mapper.Map<UserGetDto>(user);
+				return ApiResponse<UserGetDto>.Success(StatusCodes.Status200OK, dto);
+			}
+			throw new NotFoundException("Username or password was wrong");
 		}
 	}
 }

@@ -8,7 +8,14 @@ namespace Rediscuss.DataAccsess.EF.Contexts
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
 			modelBuilder.Entity<Join>()
-				.HasKey(join => new {join.UserId, join.SubredisId});
+				.HasKey("UserId", "SubredisId");
+			modelBuilder.Entity<Join>().HasOne(e => e.User).WithMany(e => e.Joins).HasForeignKey(e => e.UserId).HasPrincipalKey(e => e.UserId);
+			modelBuilder.Entity<Join>().HasOne(e => e.Subredis).WithMany(e => e.Joins).HasForeignKey(e => e.SubredisId).HasPrincipalKey(e => e.SubredisId);
+
+			modelBuilder.Entity<Subredis>().HasOne(e => e.User).WithMany(e => e.Subredises).HasForeignKey(e => e.CreatedBy).HasPrincipalKey(e => e.UserId);
+
+
+			modelBuilder.Entity<Post>().HasOne(e => e.User).WithMany(e => e.Posts).HasForeignKey(e => e.CreatedBy).HasPrincipalKey(e => e.UserId);
 		}
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{

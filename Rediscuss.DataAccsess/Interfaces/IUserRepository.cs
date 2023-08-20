@@ -10,5 +10,7 @@ namespace Rediscuss.DataAccsess.Interfaces
 		Task<List<User>> GetAllsAsync(params string[] includeList);
 		Task<List<User>> GetUserNamesAsync();
 		Task<List<User>> GetEmailAsync();
+
+		Task<User> GetByUserNameAndPassword(string userName, string password);
 	}
 }

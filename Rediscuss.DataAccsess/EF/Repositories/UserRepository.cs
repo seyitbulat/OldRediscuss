@@ -27,5 +27,10 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 		{
 			return await GetAllAsync(includeList: includeList);
 		}
+
+		public async Task<User> GetByUserNameAndPassword(string userName, string password)
+		{
+			return await GetAsync(u => u.Username == userName && u.Password == password);
+		}
 	}
 }

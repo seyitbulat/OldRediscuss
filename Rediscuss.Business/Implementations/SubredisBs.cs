@@ -46,9 +46,9 @@ namespace Rediscuss.Business.Implementations
 			throw new NotFoundException("No suitable subredis was found based on the ID entered.");
 		}
 
-		public async Task<ApiResponse<List<SubredisGetDto>>> GetAllAsync()
+		public async Task<ApiResponse<List<SubredisGetDto>>> GetAllAsync(params string[] includeList)
 		{
-			var subredis = await _repo.GetAllAsync();
+			var subredis = await _repo.GetAllAsync(includeList: includeList);
 			if(subredis != null)
 			{
 				var dtoList = _mapper.Map<List<SubredisGetDto>>(subredis);
@@ -62,7 +62,7 @@ namespace Rediscuss.Business.Implementations
 			if (description == null)
 				throw new BadRequestException("Enter a description");
 
-			var subredises = await _repo.GetByDescriptionAsync(description);
+			var subredises = await _repo.GetByDescriptionAsync(description, includeList);
 			if (subredises != null)
 			{
 				var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
@@ -96,7 +96,7 @@ namespace Rediscuss.Business.Implementations
 			if (name == null)
 				throw new BadRequestException("Enter a name");
 
-			var subredises = await _repo.GetByNameAsync(name);
+			var subredises = await _repo.GetByNameAsync(name, includeList);
 			if (subredises != null)
 			{
 				var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
