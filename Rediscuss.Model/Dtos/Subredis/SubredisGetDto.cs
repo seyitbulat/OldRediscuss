@@ -1,4 +1,9 @@
-﻿namespace Rediscuss.Model.Dtos.Subredis
+﻿using Rediscuss.Model.Dtos.Join;
+using Rediscuss.Model.Dtos.Post;
+using Rediscuss.Model.Dtos.User;
+using Rediscuss.Model.Entities;
+
+namespace Rediscuss.Model.Dtos.Subredis
 {
 	public class SubredisGetDto
 	{
@@ -8,6 +13,6 @@
 		public DateTime CreatedAt { get; set; }
 		public int CreatedBy { get; set; }
 
-		
-	}
+        public List<PostGetDto> Posts { get; set; }
+    }
 }

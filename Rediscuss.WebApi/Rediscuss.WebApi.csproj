@@ -18,4 +18,10 @@
     <ProjectReference Include="..\Rediscuss.Business\Rediscuss.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\SubredisImages\" />
+    <Folder Include="wwwroot\PostImages\" />
+    <Folder Include="wwwroot\UserImages\" />
+  </ItemGroup>
+
 </Project>

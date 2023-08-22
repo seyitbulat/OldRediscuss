@@ -1,4 +1,6 @@
-﻿namespace Rediscuss.Model.Dtos.Post
+﻿using Rediscuss.Model.Dtos.Subredis;
+
+namespace Rediscuss.Model.Dtos.Post
 {
 	public class PostGetDto
 	{
@@ -9,5 +11,13 @@
 		public DateTime CreatedAt { get; set; }
 		public int CreatedBy { get; set; }
 		public int SubredisId { get; set; }
-	}
+
+
+		
+        public string? PostPicture { get; set; }
+        public string? ImageRoute { get; set; }
+
+        public string SubredisName { get; set; }
+		public string PostedBy { get; set; }
+    }
 }

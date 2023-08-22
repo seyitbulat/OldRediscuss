@@ -26,7 +26,7 @@ namespace Rediscuss.WebApi.Controllers
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
 		{
-			var response = await _subredisBs.GetByIdAsync(id);
+			var response = await _subredisBs.GetByIdAsync(id, "Posts");
 			return await SendResponse(response);
 		}
 

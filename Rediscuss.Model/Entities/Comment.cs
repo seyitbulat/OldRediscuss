@@ -9,6 +9,7 @@ namespace Rediscuss.Model.Entities
         public DateTime CreatedAt { get; set; }
         public int CreatedBy { get; set; }
         public int PostId { get; set; }
+        public bool? IsActive { get; set; }
 
         // Navigation Property
         public Post Post { get; set; }

@@ -23,17 +23,18 @@ namespace Rediscuss.WebApi.Controllers
 			_configuration = configuration;
 		}
 
-		[HttpGet("{id}")]
+        [AllowAnonymous]
+        [HttpGet("{id}")]
 		public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
 		{
 			var response = await _userBs.GetByIdAsync(id);
 			return await SendResponse(response);
 		}
 
-		[HttpGet("login")]
-		public async Task<IActionResult> Login([FromQuery] string userName, [FromQuery] string password)
+		[HttpPost("login")]
+		public async Task<IActionResult> Login([FromBody] UserLoginDto dto)
 		{
-			var response = await _userBs.Login(userName, password);
+			var response = await _userBs.Login(dto.UserName, dto.Password);
 			
 			var claims = new List<Claim>();
 			claims.Add(new Claim("userName", response.Data.Username));
@@ -41,17 +42,9 @@ namespace Rediscuss.WebApi.Controllers
 			claims.Add(new Claim(ClaimTypes.Role, UserRoles.User));
 
 			var accessToken = new JwtGenerator(_configuration).CreateAccessToken(claims);
-
-			var resultData = new
-			{
-				Data = response.Data,
-				ErrorMessages = response.ErrorMessages,
-				StatusCode = response.StatusCode,
-				Token = accessToken.Token
-			};
-
-			var result = new ObjectResult(resultData);
-			return  result;
+			response.Data.Token = accessToken.Token;
+			
+			return await SendResponse(response);
 		}
 
 		[HttpPost]

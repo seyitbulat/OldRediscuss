@@ -109,5 +109,10 @@ namespace Rediscuss.Business.Implementations
 			}
 			throw new NotFoundException("Username or password was wrong");
 		}
-	}
+
+        public Task<ApiResponse<NoData>> UpdatUserAsync()
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

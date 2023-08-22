@@ -29,9 +29,14 @@ namespace Rediscuss.Business
 			service.AddScoped<IJoinRepository, JoinRepository>();
 			service.AddScoped<IJoinBs, JoinBs>();
 
+			service.AddScoped<IPostImageRepository, PostImageRepository>();
+			service.AddScoped<IPostImageBs, PostImageBs>();
+
 			service.AddScoped<ILoggerBs, LoggerBs>();
 			LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(),"/nlog.config"));
 			service.ConfigureLoggerService();
+
+			
 
 			// validator
 			service.AddValidatorsFromAssemblyContaining<UserValidator>();

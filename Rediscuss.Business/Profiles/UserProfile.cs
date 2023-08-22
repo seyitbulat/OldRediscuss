@@ -13,8 +13,10 @@ namespace Rediscuss.Business.Profiles
 	{
         public UserProfile()
         {
-			CreateMap<User, UserGetDto>();
-			CreateMap<UserPostDto, User>();
+			CreateMap<User, UserGetDto>()
+				.ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => src.Base64Picture));
+			CreateMap<UserPostDto, User>()
+				.ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => Convert.FromBase64String(src.Base64Picture)));
 		}
     }
 }

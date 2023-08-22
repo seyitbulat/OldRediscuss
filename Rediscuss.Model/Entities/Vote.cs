@@ -9,6 +9,7 @@ namespace Rediscuss.Model.Entities
         public int UserId { get; set; }
         public int VoteCount { get; set; }
         public DateTime CreatedAt { get; set; }
+        public bool? IsActive { get; set; }
 
         // Navigation Properties
 

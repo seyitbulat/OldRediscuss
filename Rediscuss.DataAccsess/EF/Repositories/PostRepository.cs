@@ -7,30 +7,35 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 {
 	public class PostRepository : BaseRepository<Post, RediscussContext>, IPostRepository
 	{
-		public Task<List<Post>> GetByBodyAsync(string body)
+		public async Task<List<Post>> GetByBodyAsync(string body, params string[] includeList)
 		{
-			return GetAllAsync(p => p.PostTitle.ToLower().Contains(body.ToLower()));
+			return await GetAllAsync(p => p.PostTitle.ToLower().Contains(body.ToLower()), includeList);
 		}
 
-		public Task<List<Post>> GetByDateAsync(int min, int max)
+		public async Task<List<Post>> GetByDateAsync(int min, int max, params string[] includeList)
 		{
-			return GetAllAsync(p =>
-				p.CreatedAt.Date.Year >= min && p.CreatedAt.Date.Year <= max);
+			return await GetAllAsync(p =>
+				p.CreatedAt.Date.Year >= min && p.CreatedAt.Date.Year <= max, includeList);
 		}
 
-		public Task<Post> GetByIdAsync(int id)
+		public async Task<Post> GetByIdAsync(int id, params string[] includeList)
 		{
-			return GetAsync(p => p.PostId == id);
+			return await GetAsync(p => p.PostId == id, includeList);
 		}
 
-		public Task<List<Post>> GetBySubredisIdAsync(int subredisId)
+		public async Task<List<Post>> GetBySubredisIdAsync(int subredisId, params string[] includeList)
 		{
-			return GetAllAsync(p => p.SubredisId == subredisId);
+			return await GetAllAsync(p => p.SubredisId == subredisId, includeList);
 		}
 
-		public Task<List<Post>> GetByTitleAsync(string title)
+		public async Task<List<Post>> GetByTitleAsync(string title, params string[] includeList)
 		{
-			return GetAllAsync(p => p.PostTitle.ToLower().Contains(title.ToLower()));
+			return await GetAllAsync(p => p.PostTitle.ToLower().Contains(title.ToLower()), includeList);
 		}
-	}
+
+        public async Task<List<Post>> GetByUserIdAsync(int userId, params string[] includeList)
+        {
+			return await GetAllAsync(p => p.CreatedBy == userId, includeList);
+        }
+    }
 }

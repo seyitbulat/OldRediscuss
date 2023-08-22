@@ -29,6 +29,9 @@ namespace Rediscuss.WebApi
 				app.UseSwaggerUI();
 			}
 
+			app.UseStaticFiles();
+
+			app.UseAuthentication();
 			app.UseAuthorization();
 
 			app.UseCustomException();

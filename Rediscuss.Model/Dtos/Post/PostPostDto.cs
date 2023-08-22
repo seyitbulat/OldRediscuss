@@ -4,7 +4,7 @@
 	{
 		public string PostTitle { get; set; }
 		public string PostBody { get; set; }
-		public string PostImage { get; set; }
 		public int CreatedBy { get; set; }
+		public int SubredisId { get; set; }
 	}
 }

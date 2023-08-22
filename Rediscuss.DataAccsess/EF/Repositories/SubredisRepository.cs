@@ -14,6 +14,7 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 
 		public Task<Subredis> GetByIdAsync(int id, params string[] includeList)
 		{
+			var result = GetAsync(s => s.SubredisId == id, includeList);
 			return GetAsync(s => s.SubredisId == id, includeList);
 		}
 
