@@ -12,7 +12,10 @@ namespace Rediscuss.WebApi
 	{
 		public static void AddApiService(this IServiceCollection services, IConfiguration configuration)
 		{
-			services.AddControllers().
+			services.AddControllers(opt =>
+			{
+				opt.InputFormatters.Insert(0, MyJPIF.GetJsonPatchInputFormatter());
+			}).
 						AddJsonOptions(opt => opt.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
 

@@ -48,6 +48,10 @@ namespace Rediscuss.Model.Entities
                 }
 				return string.Empty;
             }
+			set
+			{
+				Base64Picture = value ;
+			}
 		}
 	}
 }

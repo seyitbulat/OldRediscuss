@@ -12,6 +12,8 @@ using Rediscuss.Business.Validators;
 using System.ComponentModel.DataAnnotations;
 using Rediscuss.Business.FIlters;
 using Rediscuss.Business.Validators.DtoValidators;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Hosting;
 
 namespace Rediscuss.Business.Implementations
 {
@@ -20,36 +22,45 @@ namespace Rediscuss.Business.Implementations
 		private readonly IUserRepository _repo;
 		private readonly IMapper _mapper;
 		private readonly ILoggerBs _logger;
+		private readonly IWebHostEnvironment _webHost;
 		private readonly IValidate<UserPostDto, UserValidator> _validator;
 
-		public UserBs(IUserRepository repo, IMapper mapper, ILoggerBs logger, IValidate<UserPostDto, UserValidator> validator)
-		{
-			_repo = repo;
-			_mapper = mapper;
-			_logger = logger;
-			_validator = validator;
-		}
+        public UserBs(IUserRepository repo, IMapper mapper, ILoggerBs logger, IValidate<UserPostDto, UserValidator> validator, IWebHostEnvironment webHost)
+        {
+            _repo = repo;
+            _mapper = mapper;
+            _logger = logger;
+            _validator = validator;
+            _webHost = webHost;
+        }
 
-		public async Task<ApiResponse<User>> AddUserAsync(UserPostDto dto)
+        public async Task<ApiResponse<UserGetDto>> SignUpAsync(UserSignupDto dto)
 		{
 			var usernames = await _repo.GetUserNamesAsync();
 			var emails = await _repo.GetEmailAsync();
 
-			_validator.Valid(dto);
 			
 			if (usernames.Where(u => u.Username == dto.Username).Count() > 0)
 				throw new BadRequestException("This username is already in use");
 			if (usernames.Where(u => u.Email == dto.Email).Count() > 0)
 				throw new BadRequestException("This email is already in use");
 
+			var post = new UserPostDto()
+			{
+				Username = dto.Username,
+				Password = dto.Password,
+				Email = dto.Email
+			};
 
 			if (dto != null)
 			{
-				var user = _mapper.Map<User>(dto);
+				var user = _mapper.Map<User>(post);
 				user.Discuit = 0;
 				user.CreatedAt = DateTime.Now;
-				await _repo.InsertAsync(user);
-				return ApiResponse<User>.Success(StatusCodes.Status201Created,user);
+				user.IsActive = true;
+				var inserted = await _repo.InsertAsync(user);
+				var dtoInserted = _mapper.Map<UserGetDto>(inserted);
+				return ApiResponse<UserGetDto>.Success(StatusCodes.Status201Created,dtoInserted);
 			}
 			throw new BadRequestException("Enter the user information to add");
 		}
@@ -95,7 +106,7 @@ namespace Rediscuss.Business.Implementations
 			throw new NotFoundException("User not found");
 		}
 
-		public async Task<ApiResponse<UserGetDto>> Login(string userName, string password)
+		public async Task<ApiResponse<UserGetDto>> LoginAsync(string userName, string password)
 		{
 			userName = userName.Trim();
 			if(userName == null || password == null)
@@ -110,9 +121,48 @@ namespace Rediscuss.Business.Implementations
 			throw new NotFoundException("Username or password was wrong");
 		}
 
-        public Task<ApiResponse<NoData>> UpdatUserAsync()
+      
+        public async Task<ApiResponse<NoData>> UpdateUserAsync(UserPutDto dto)
         {
-            throw new NotImplementedException();
+			var oldUser = _repo.GetByIdAsync(dto.UserId);
+           if(dto != null)
+			{
+				var user = _mapper.Map<User>(dto);
+				await _repo.UpdateAsync(user);
+				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
+			}
+            throw new BadRequestException("Enter the user information to update");
         }
+
+		public async Task<ApiResponse<NoData>> PatchUserAsync(UserPutDto dto)
+		{
+			var user = await _repo.GetByIdAsync(dto.UserId);
+            var patchDoc = new JsonPatchDocument<User>();
+            var file = dto.File;
+            if (file != null)
+            {
+                var randomFileName = $"{Guid.NewGuid().ToString()}{Path.GetExtension(file.FileName)}";
+                var imagePath = $@"/PostImages/{randomFileName}";
+                var uploadPath = $@"{_webHost.ContentRootPath}/wwwroot{imagePath}";
+
+                using var fs = new FileStream(uploadPath, FileMode.Create);
+                file.CopyTo(fs);
+                fs.Dispose();
+
+                var base64 = Convert.ToBase64String(System.IO.File.ReadAllBytes(uploadPath));
+                patchDoc.Replace(p => p.UserImage, Convert.FromBase64String(base64));
+            }
+
+            patchDoc.Replace(p => p.FirstName, dto.FirstName);
+            patchDoc.Replace(p => p.LastName, dto.LastName);
+            patchDoc.Replace(p => p.Gender, dto.Gender);
+            patchDoc.Replace(p => p.BirthDate, DateTime.Parse(dto.BirthDate));
+            patchDoc.Replace(p => p.Country, dto.Country);
+
+            patchDoc.ApplyTo(user);
+			await _repo.PatchAsync(user);
+			return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
+        }
+
     }
 }

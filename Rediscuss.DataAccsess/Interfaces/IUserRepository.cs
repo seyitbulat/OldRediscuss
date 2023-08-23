@@ -1,4 +1,6 @@
 ﻿using Infrastructure.DataAccess.Interfaces;
+using Infrastructure.Utilities.ApiResponses;
+using Microsoft.AspNetCore.JsonPatch;
 using Rediscuss.Model.Dtos.User;
 using Rediscuss.Model.Entities;
 
@@ -12,5 +14,6 @@ namespace Rediscuss.DataAccsess.Interfaces
 		Task<List<User>> GetEmailAsync();
 
 		Task<User> GetByUserNameAndPassword(string userName, string password);
+
 	}
 }
