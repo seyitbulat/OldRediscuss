@@ -2,6 +2,8 @@
 using Infrastructure.Utilities.ApiResponses;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.Hosting;
 using Rediscuss.Business.CustomExceptions;
 using Rediscuss.Business.Interfaces;
 using Rediscuss.DataAccsess.Interfaces;
@@ -33,9 +35,10 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("Enter a body");
 
 			var posts = await _repo.GetByBodyAsync(body);
-			if (posts != null)
+			var filtered = posts.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<PostGetDto>>(posts);
+				var dto = _mapper.Map<List<PostGetDto>>(filtered);
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Post not found");
@@ -47,6 +50,7 @@ namespace Rediscuss.Business.Implementations
 			{
 				var post = _mapper.Map<Post>(dto);
 				post.CreatedAt = DateTime.Now;
+				post.IsActive = true;
 				var inserted = await _repo.InsertAsync(post);
 				var response = _mapper.Map<PostGetDto>(inserted);
 
@@ -58,9 +62,10 @@ namespace Rediscuss.Business.Implementations
 		public async Task<ApiResponse<List<PostGetDto>>> GetAllPostsAsync(params string[] includeList)
 		{
 			var posts = await _repo.GetAllAsync(includeList: includeList);
-			if (posts != null)
+			var filtered = posts.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dtoList = _mapper.Map<List<PostGetDto>>(posts);
+				var dtoList = _mapper.Map<List<PostGetDto>>(filtered);
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, dtoList);
 			}
 			throw new NotFoundException("Posts not found");
@@ -79,7 +84,7 @@ namespace Rediscuss.Business.Implementations
 			if (id == null)
 				throw new BadRequestException("Enter an id");
 			var post = await _repo.GetByIdAsync(id, includeList);
-			if (post != null)
+			if (post != null && post.IsActive == true)
 			{
 				var dto = _mapper.Map<PostGetDto>(post);
 				return ApiResponse<PostGetDto>.Success(StatusCodes.Status200OK, dto);
@@ -98,9 +103,10 @@ namespace Rediscuss.Business.Implementations
 				posts.Where(e => e.SubredisId == subredisId).Select(e => e.Subredis.Posts = null);
 				post.AddRange(posts);
 			}
-			if (post != null)
+			var filtered = post.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<PostGetDto>>(post);
+				var dto = _mapper.Map<List<PostGetDto>>(filtered);
 				var ordered = dto.OrderByDescending(e => e.CreatedAt).ToList();
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, ordered);
 			}
@@ -114,9 +120,11 @@ namespace Rediscuss.Business.Implementations
 			if (subredisId == null)
 				throw new BadRequestException("Enter an subredis id");
 			var posts = await _repo.GetBySubredisIdAsync(subredisId, includeList);
-			if (posts != null)
+			var filtered = posts.Where(e => e.IsActive == true).ToList();
+
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<PostGetDto>>(posts);
+				var dto = _mapper.Map<List<PostGetDto>>(filtered);
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Post not found");
@@ -128,9 +136,11 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("Enter a title");
 
 			var posts = await _repo.GetByTitleAsync(title);
-			if (posts != null)
+			var filtered = posts.Where(e => e.IsActive == true).ToList();
+
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<PostGetDto>>(posts);
+				var dto = _mapper.Map<List<PostGetDto>>(filtered);
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Post not found");
@@ -142,11 +152,29 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("Id cannot be negative");
 
 			var posts = await _repo.GetByUserIdAsync(userId, includeList);
+			var filtered = posts.Where(e => e.IsActive == true).ToList();
 
-			if (posts != null)
+			if (filtered != null)
 			{
-				var dtoList = _mapper.Map<List<PostGetDto>>(posts);
+				var dtoList = _mapper.Map<List<PostGetDto>>(filtered);
 				return ApiResponse<List<PostGetDto>>.Success(StatusCodes.Status200OK, dtoList);
+			}
+			throw new NotFoundException("Post not found");
+		}
+
+		public async Task<ApiResponse<NoData>> DeletePostAsync(int postId)
+		{
+			var patchDoc = new JsonPatchDocument<Post>();
+			if (postId < 0)
+				throw new BadRequestException("Id cannot be negative");
+
+			var post = await _repo.GetByIdAsync(postId);
+			if (post != null)
+			{
+				patchDoc.Replace(p => p.IsActive, false);
+				patchDoc.ApplyTo(post);
+				await _repo.PatchAsync(post);
+				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
 			}
 			throw new NotFoundException("Post not found");
 		}

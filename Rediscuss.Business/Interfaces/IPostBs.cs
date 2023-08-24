@@ -16,5 +16,6 @@ namespace Rediscuss.Business.Interfaces
 		Task<ApiResponse<List<PostGetDto>>> GetAllPostsAsync(params string[] includeList);
 
 		Task<ApiResponse<PostGetDto>> AddPostAsync(PostPostDto dto);
+        Task<ApiResponse<NoData>> DeletePostAsync(int postId);
     }
 }

@@ -83,7 +83,7 @@ namespace Rediscuss.Business.Implementations
 			if (id == null)
 				throw new BadRequestException("Enter an id");
 			var subredis = await _repo.GetByIdAsync(id, includeList);
-			if (subredis != null)
+			if (subredis != null && subredis.IsActive == true)
 			{
 				var dto = _mapper.Map<SubredisGetDto>(subredis);
 				return ApiResponse<SubredisGetDto>.Success(StatusCodes.Status200OK, dto);
@@ -115,9 +115,9 @@ namespace Rediscuss.Business.Implementations
 		{
 			var subredises = await _repo.GetSuggestionAsync(userId, includeList);
 			var filtered = subredises.Where(e => e.IsActive == true).ToList();
-			if (subredises != null)
+			if (filtered != null)
             {
-                var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
+                var dto = _mapper.Map<List<SubredisGetDto>>(filtered);
                 return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dto);
             }
             throw new NotFoundException("Subredis not found");

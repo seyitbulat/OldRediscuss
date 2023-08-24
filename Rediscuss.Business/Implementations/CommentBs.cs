@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Infrastructure.Utilities.ApiResponses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.VisualBasic;
 using Rediscuss.Business.CustomExceptions;
 using Rediscuss.Business.Interfaces;
@@ -31,6 +32,7 @@ namespace Rediscuss.Business.Implementations
 			{
 				var comment = _mapper.Map<Comment>(dto);
 				comment.CreatedAt = DateTime.Now;
+				comment.IsActive = true;
 				var inserted = await _repo.InsertAsync(comment);
 				return ApiResponse<Comment>.Success(StatusCodes.Status201Created, comment);
 			}
@@ -39,13 +41,16 @@ namespace Rediscuss.Business.Implementations
 
 		public async Task<ApiResponse<NoData>> DeleteCommentAsync(int id)
 		{
+			var patchDoc = new JsonPatchDocument<Comment>();
 			if (id <= 0)
 				throw new BadRequestException("Id cannot be negative");
 
 			var comment = await _repo.GetByIdAsync(id);
 			if (comment != null)
 			{
-				await _repo.DeleteAsync(comment);
+				patchDoc.Replace(e => e.IsActive, false);
+				patchDoc.ApplyTo(comment);
+				await _repo.PatchAsync(comment);
 				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
 			}
 			throw new NotFoundException("No suitable comment was found based on the ID entered");
@@ -58,7 +63,7 @@ namespace Rediscuss.Business.Implementations
 			if (id == null)
 				throw new BadRequestException("Enter an id");
 			var comment = await _repo.GetByIdAsync(id, includeList);
-			if (comment != null)
+			if (comment != null && comment.IsActive == true)
 			{
 				var dto = _mapper.Map<CommentGetDto>(comment);
 				return ApiResponse<CommentGetDto>.Success(StatusCodes.Status200OK, dto);
@@ -73,9 +78,10 @@ namespace Rediscuss.Business.Implementations
 			if (postId == null)
 				throw new BadRequestException("Enter an id");
 			var comments = await _repo.GetByPostIdAsync(postId, includeList);
-			if (comments != null)
+			var filtered = comments.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<CommentGetDto>>(comments);
+				var dto = _mapper.Map<List<CommentGetDto>>(filtered);
 				return ApiResponse<List<CommentGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Comments not found");

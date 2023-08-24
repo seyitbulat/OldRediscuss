@@ -3,6 +3,8 @@ using Infrastructure.Utilities.ApiResponses;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.Extensions.Hosting;
 using Rediscuss.Business.CustomExceptions;
 using Rediscuss.Business.Interfaces;
 using Rediscuss.DataAccsess.Interfaces;
@@ -105,15 +107,41 @@ namespace Rediscuss.Business.Implementations
             throw new BadRequestException("You must upload a file");
         }
 
-        public async Task<ApiResponse<List<PostImageGetDto>>> GetImagesFromPostIdAsync(int postId, params string[] includeList)
+		public async Task<ApiResponse<NoData>> DeleteImages(int postId)
+		{
+			var patchDoc = new JsonPatchDocument<PostImage>();
+			if (postId < 0)
+				throw new BadRequestException("Id cannot be negative");
+
+			var postImage = await _repo.GetImagesFromPostIdAsync(postId);
+			if (postImage != null)
+			{
+				foreach(var image in postImage)
+                {
+                    patchDoc.Replace(p => p.IsActive, false);
+					patchDoc.ApplyTo(image);
+					await _repo.PatchAsync(image);
+				}
+				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
+			}
+			throw new NotFoundException("Post images not found");
+		}
+
+		public async Task<ApiResponse<List<PostImageGetDto>>> GetImagesFromPostIdAsync(int postId, params string[] includeList)
         {
             if (postId < 0)
                 throw new BadRequestException("Id cannot be negative");
 
             var posts = await _repo.GetImagesFromPostIdAsync(postId, includeList);
-            var dtoList = _mapper.Map<List<PostImageGetDto>>(posts);
+            var filtered = posts.Where(e => e.IsActive == true);
+            if(filtered != null)
+            {
+				var dtoList = _mapper.Map<List<PostImageGetDto>>(posts);
 
-            return ApiResponse<List<PostImageGetDto>>.Success(StatusCodes.Status200OK,dtoList);
-        }
-    }
+				return ApiResponse<List<PostImageGetDto>>.Success(StatusCodes.Status200OK, dtoList);
+			}
+			throw new NotFoundException("Post images not found");
+		}
+
+	}
 }

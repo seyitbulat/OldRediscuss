@@ -14,5 +14,7 @@ namespace Rediscuss.Business.Interfaces
         Task<ApiResponse<List<PostImageGetDto>>> AddPostImageAsync(IFormFileCollection files, int postId);
         Task<ApiResponse<PostImageGetDto>> AddPostImageAsync(PostImageUploadDto uploadDto, int postId);
         Task<ApiResponse<List<PostImageGetDto>>> GetImagesFromPostIdAsync(int postId, params string[] includeList);
+
+        Task<ApiResponse<NoData>> DeleteImages(int postId);
     }
 }
