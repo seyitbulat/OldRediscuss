@@ -23,6 +23,14 @@ namespace Rediscuss.DataAccsess.EF.Repositories
 			return GetAllAsync(s => s.SubredisName.ToLower().Contains(name.ToLower()), includeList);
 		}
 
-		
-	}
+		public async Task<List<Subredis>> GetSuggestionAsync(int userId, params string[] includeList)
+		{
+			var all = await GetAllAsync(includeList: includeList);
+			
+			var result = all.Where(s => !s.Joins.Any(j => j.UserId == userId)).ToList();
+
+            return result;
+		}
+
+    }
 }

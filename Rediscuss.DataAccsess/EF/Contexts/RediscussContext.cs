@@ -31,6 +31,9 @@ namespace Rediscuss.DataAccsess.EF.Contexts
             modelBuilder.Entity<Post>().HasMany(e => e.PostImages).WithOne(e => e.Post).HasForeignKey(e => e.PostId).HasPrincipalKey(e => e.PostId);
 
             modelBuilder.Entity<PostImage>().HasOne(e => e.Post).WithMany(e => e.PostImages).HasForeignKey(e => e.PostId).HasPrincipalKey(e => e.PostId);
+
+
+            modelBuilder.Entity<Comment>().HasOne(e => e.User).WithMany(e => e.Comments).HasForeignKey(e => e.CreatedBy).HasPrincipalKey(e => e.UserId);
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

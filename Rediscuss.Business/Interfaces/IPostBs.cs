@@ -1,10 +1,9 @@
 ﻿using Infrastructure.Utilities.ApiResponses;
-using Microsoft.AspNetCore.Http;
 using Rediscuss.Model.Dtos.Post;
 
 namespace Rediscuss.Business.Interfaces
 {
-    public interface IPostBs
+	public interface IPostBs
     {
         Task<ApiResponse<PostGetDto>> GetByIdAsync(int id, params string[] includeList);
         Task<ApiResponse<List<PostGetDto>>> GetByTitleAsync(string title, params string[] includeList);
@@ -14,6 +13,8 @@ namespace Rediscuss.Business.Interfaces
         Task<ApiResponse<List<PostGetDto>>> GetByJoinedUsersAsync(int userId, params string[] includeList);
         Task<ApiResponse<List<PostGetDto>>> GetByUserIdAsync(int userId , params string[] includeList);
 
-        Task<ApiResponse<PostGetDto>> AddPostAsync(PostPostDto dto);
+		Task<ApiResponse<List<PostGetDto>>> GetAllPostsAsync(params string[] includeList);
+
+		Task<ApiResponse<PostGetDto>> AddPostAsync(PostPostDto dto);
     }
 }

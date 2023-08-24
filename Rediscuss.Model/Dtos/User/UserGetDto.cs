@@ -1,6 +1,8 @@
 ﻿using Infrastructure.Model;
 using Infrastructure.Utilities.Security.JWT;
+using Rediscuss.Model.Dtos.Comment;
 using Rediscuss.Model.Dtos.Join;
+using Rediscuss.Model.Entities;
 
 namespace Rediscuss.Model.Dtos.User
 {
@@ -22,20 +24,21 @@ namespace Rediscuss.Model.Dtos.User
         public string? Country { get; set; }
         public bool? IsActive { get; set; }
 
-        public string? ContentType
-        {
-            get
-            {
-                return ContentType;
-            }
-            set
-            {
-                if(ImageRoute != null)
-                {
-                    value = "image/" + Path.GetExtension(ImageRoute);
-                }
-            }
-        }
+
+        //public string? ContentType { get; set; }
+        //{
+        //    get
+        //    {
+        //        return ContentType;
+        //    }
+        //    set
+        //    {
+        //        if(ImageRoute != null)
+        //        {
+        //            value = "image/" + Path.GetExtension(ImageRoute);
+        //        }
+        //    }
+        //}
         public string Token { get; set; } = null;
     }
 }

@@ -7,7 +7,6 @@ using Rediscuss.Model.Entities;
 
 namespace Rediscuss.WebApi.Controllers
 {
-	[Authorize(Roles = UserRoles.User)]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class PostsController : BaseController
@@ -19,10 +18,18 @@ namespace Rediscuss.WebApi.Controllers
 			_postBs = postBs;
 		}
 
+		[Authorize(Roles = UserRoles.Admin)]
+		[HttpGet]
+		public async Task<IActionResult> GetAllAsync()
+		{
+			var response = await _postBs.GetAllPostsAsync("User","Comments", "PostImages");
+			return await SendResponse(response);
+		}
+
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
 		{
-			var response = await _postBs.GetByIdAsync(id);
+			var response = await _postBs.GetByIdAsync(id, "User");
 			return await SendResponse(response);
 		}
 
@@ -50,14 +57,14 @@ namespace Rediscuss.WebApi.Controllers
 		[HttpGet("getBySubredis")]
 		public async Task<IActionResult> GetBySubredis([FromQuery] int subredisId)
 		{
-			var response = await _postBs.GetBySubredisIdAsync(subredisId);
+			var response = await _postBs.GetBySubredisIdAsync(subredisId, "User", "Comments");
 			return await SendResponse(response);
 		}
 		
 		[HttpGet("getByJoinedUser")]
 		public async Task<IActionResult> GetByJoinedUser([FromQuery] int userId)
 		{
-			var response = await _postBs.GetByJoinedUsersAsync(userId, "Subredis", "User");
+			var response = await _postBs.GetByJoinedUsersAsync(userId, "Subredis", "User", "Comments");
 			return await SendResponse(response);
 		}
 

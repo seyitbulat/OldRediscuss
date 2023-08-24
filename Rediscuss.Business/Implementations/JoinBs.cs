@@ -66,6 +66,8 @@ namespace Rediscuss.Business.Implementations
 			if(dto != null)
 			{
 				var join = _mapper.Map<Join>(dto);
+				join.JoinedAt = DateTime.Now;
+				join.IsActive = true;
 				var inserted = await _repo.InsertAsync(join);
 				return ApiResponse<Join>.Success(StatusCodes.Status201Created, inserted);
 			}

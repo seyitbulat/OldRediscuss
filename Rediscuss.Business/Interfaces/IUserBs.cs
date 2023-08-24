@@ -15,7 +15,11 @@ namespace Rediscuss.Business.Interfaces
 		Task<ApiResponse<NoData>> PatchUserAsync(UserPutDto dto);
         Task<ApiResponse<NoData>> DeleteUserAsync(int id);
 
+		Task<ApiResponse<NoData>> ProfileSetupAsync(UserSetUpDto dto);
+
 		Task<ApiResponse<UserGetDto>> LoginAsync(string userName, string password);
+
+		Task<ApiResponse<UserGetDto>> AdminLoginAsync(string userName, string password);
 
 		
 	}

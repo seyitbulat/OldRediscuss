@@ -13,7 +13,10 @@ namespace Rediscuss.Business.Interfaces
 		Task<ApiResponse<List<SubredisGetDto>>> GetByDescriptionAsync(string description, params string[] includeList);
 		Task<ApiResponse<List<SubredisGetDto>>> GetByJoinedUsers(int subredisId, params string[] includeList);
 
-		Task<ApiResponse<Subredis>> AddSubredisAsync(SubredisPostDto dto);
+		Task<ApiResponse<List<SubredisGetDto>>> GetSuggestionAsync(int userId, params string[] includeList);
+
+
+        Task<ApiResponse<Subredis>> AddSubredisAsync(SubredisPostDto dto);
 		Task<ApiResponse<NoData>> DeleteSubredisAsync(int id);
 	}
 }

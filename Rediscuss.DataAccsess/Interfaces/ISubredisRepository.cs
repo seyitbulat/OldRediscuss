@@ -12,6 +12,8 @@ namespace Rediscuss.DataAccsess.Interfaces
 	{
 		Task<Subredis> GetByIdAsync(int id, params string[] includeList);
 		Task<List<Subredis>> GetByNameAsync(string name, params string[] includeList);
-		Task<List<Subredis>> GetByDescriptionAsync(string description, params string[] includeList);	
+		Task<List<Subredis>> GetByDescriptionAsync(string description, params string[] includeList);
+
+		Task<List<Subredis>> GetSuggestionAsync(int userId, params string[] includeList);
 	}
 }

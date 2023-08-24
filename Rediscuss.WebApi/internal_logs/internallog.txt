@@ -724,3 +724,235 @@
 2023-08-24 01:16:40.5379 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
 2023-08-24 01:16:40.5680 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
 2023-08-24 01:16:40.5833 Info Configuration initialized.
+2023-08-24 01:31:53.5824 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:31:53.6212 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:31:53.6462 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:31:53.6688 Info Configuration initialized.
+2023-08-24 01:35:03.4778 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:35:03.5106 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:35:03.5368 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:35:03.5565 Info Configuration initialized.
+2023-08-24 01:40:19.0322 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:40:19.0783 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:40:19.1204 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:40:19.1518 Info Configuration initialized.
+2023-08-24 01:40:50.8181 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:40:50.8540 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:40:50.8751 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:40:50.8926 Info Configuration initialized.
+2023-08-24 01:47:50.7645 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:47:50.8002 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:47:50.8267 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:47:50.8560 Info Configuration initialized.
+2023-08-24 01:48:08.2005 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:48:08.2352 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:48:08.2575 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:48:08.2763 Info Configuration initialized.
+2023-08-24 01:50:49.5016 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:50:49.5308 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:50:49.5547 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:50:49.5784 Info Configuration initialized.
+2023-08-24 01:51:18.9397 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:51:18.9799 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:51:19.0203 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:51:19.0491 Info Configuration initialized.
+2023-08-24 01:51:32.2811 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:51:32.3112 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:51:32.3335 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:51:32.3499 Info Configuration initialized.
+2023-08-24 01:55:31.0759 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 01:55:31.1272 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 01:55:31.1518 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 01:55:31.1692 Info Configuration initialized.
+2023-08-24 11:42:29.3094 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:42:29.4242 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:42:29.4605 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:42:29.5048 Info Configuration initialized.
+2023-08-24 11:46:24.9798 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:46:25.0680 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:46:25.0928 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:46:25.1187 Info Configuration initialized.
+2023-08-24 11:46:51.5586 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:46:51.5978 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:46:51.6236 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:46:51.6414 Info Configuration initialized.
+2023-08-24 11:49:28.5494 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:49:28.5797 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:49:28.5970 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:49:28.6175 Info Configuration initialized.
+2023-08-24 11:50:58.7183 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:50:58.7515 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:50:58.7723 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:50:58.7889 Info Configuration initialized.
+2023-08-24 11:52:19.1667 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:52:19.2082 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:52:19.2420 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:52:19.2592 Info Configuration initialized.
+2023-08-24 11:53:47.4482 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:53:47.4842 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:53:47.5138 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:53:47.5459 Info Configuration initialized.
+2023-08-24 11:56:39.6978 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:56:39.7299 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:56:39.7498 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:56:39.7686 Info Configuration initialized.
+2023-08-24 11:57:00.1809 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 11:57:00.2166 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 11:57:00.2433 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 11:57:00.2677 Info Configuration initialized.
+2023-08-24 12:05:31.5724 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:05:31.6047 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:05:31.6254 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:05:31.6428 Info Configuration initialized.
+2023-08-24 12:19:08.0335 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:19:08.0722 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:19:08.1011 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:19:08.1247 Info Configuration initialized.
+2023-08-24 12:20:22.1140 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:20:22.1953 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:20:22.2312 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:20:22.2656 Info Configuration initialized.
+2023-08-24 12:51:43.0418 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:51:43.0807 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:51:43.1107 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:51:43.1405 Info Configuration initialized.
+2023-08-24 12:53:38.6050 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:53:38.6392 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:53:38.6605 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:53:38.6845 Info Configuration initialized.
+2023-08-24 12:54:21.1245 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:54:21.1652 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:54:21.1953 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:54:21.2181 Info Configuration initialized.
+2023-08-24 12:59:41.3964 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 12:59:41.4349 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 12:59:41.4558 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 12:59:41.4756 Info Configuration initialized.
+2023-08-24 13:00:46.7849 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:00:46.8201 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:00:46.8391 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:00:46.8564 Info Configuration initialized.
+2023-08-24 13:02:49.2447 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:02:49.2835 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:02:49.3037 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:02:49.3219 Info Configuration initialized.
+2023-08-24 13:03:11.6828 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:03:11.7218 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:03:11.7431 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:03:11.7621 Info Configuration initialized.
+2023-08-24 13:04:57.3178 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:04:57.3622 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:04:57.3902 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:04:57.4183 Info Configuration initialized.
+2023-08-24 13:22:11.4235 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:22:11.4652 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:22:11.4901 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:22:11.5109 Info Configuration initialized.
+2023-08-24 13:22:27.4305 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:22:27.4625 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:22:27.4998 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:22:27.5183 Info Configuration initialized.
+2023-08-24 13:22:49.4182 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:22:49.4568 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:22:49.4905 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:22:49.5275 Info Configuration initialized.
+2023-08-24 13:26:33.3477 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:26:33.3874 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:26:33.4132 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:26:33.4381 Info Configuration initialized.
+2023-08-24 13:58:38.1587 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:58:38.2226 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:58:38.2752 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:58:38.3154 Info Configuration initialized.
+2023-08-24 13:59:02.5087 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 13:59:02.5455 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 13:59:02.5738 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 13:59:02.6024 Info Configuration initialized.
+2023-08-24 15:51:29.9053 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 15:51:30.0337 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 15:51:30.0662 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 15:51:30.0965 Info Configuration initialized.
+2023-08-24 15:52:56.6843 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 15:52:56.7171 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 15:52:56.7366 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 15:52:56.7568 Info Configuration initialized.
+2023-08-24 16:01:25.7204 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 16:01:25.7601 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 16:01:25.7869 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 16:01:25.8163 Info Configuration initialized.
+2023-08-24 16:14:18.8898 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 16:14:18.9340 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 16:14:18.9775 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 16:14:19.0174 Info Configuration initialized.
+2023-08-24 16:21:17.8741 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 16:21:17.9274 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 16:21:17.9626 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 16:21:18.0242 Info Configuration initialized.
+2023-08-24 16:47:05.5756 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 16:47:05.6128 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 16:47:05.6375 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 16:47:05.6583 Info Configuration initialized.
+2023-08-24 16:47:20.5721 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 16:47:20.6112 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 16:47:20.6317 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 16:47:20.6491 Info Configuration initialized.
+2023-08-24 17:01:24.4627 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 17:01:24.5392 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 17:01:24.5981 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 17:01:24.6532 Info Configuration initialized.
+2023-08-24 17:16:38.4826 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 17:16:38.5249 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 17:16:38.5541 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 17:16:38.5977 Info Configuration initialized.
+2023-08-24 17:21:46.4903 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 17:21:46.5782 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 17:21:46.6029 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 17:21:46.6253 Info Configuration initialized.
+2023-08-24 17:24:00.8891 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 17:24:00.9305 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 17:24:00.9641 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 17:24:01.0047 Info Configuration initialized.
+2023-08-24 17:27:43.5806 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 17:27:43.6297 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 17:27:43.6514 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 17:27:43.6682 Info Configuration initialized.
+2023-08-24 18:12:51.8286 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 18:12:51.8890 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 18:12:51.9285 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 18:12:51.9643 Info Configuration initialized.
+2023-08-24 18:14:21.0237 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 18:14:21.0621 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 18:14:21.0874 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 18:14:21.1092 Info Configuration initialized.
+2023-08-24 18:35:42.9716 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 18:35:43.0246 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 18:35:43.0530 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 18:35:43.0890 Info Configuration initialized.
+2023-08-24 19:52:45.7872 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 19:52:45.8210 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 19:52:45.8396 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 19:52:45.8528 Info Configuration initialized.
+2023-08-24 19:56:13.9972 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 19:56:14.0258 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 19:56:14.0508 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 19:56:14.0756 Info Configuration initialized.
+2023-08-24 19:59:01.3613 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 19:59:01.4004 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 19:59:01.4282 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 19:59:01.4499 Info Configuration initialized.
+2023-08-24 20:00:24.6633 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 20:00:24.6966 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 20:00:24.7247 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 20:00:24.7407 Info Configuration initialized.
+2023-08-24 20:43:39.4780 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 20:43:39.5590 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 20:43:39.5863 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 20:43:39.6113 Info Configuration initialized.
+2023-08-24 21:01:32.1127 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 21:01:32.1669 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 21:01:32.1885 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 21:01:32.2093 Info Configuration initialized.
+2023-08-24 21:19:23.4377 Info Registered target NLog.Targets.FileTarget(Name=logfile)
+2023-08-24 21:19:23.4725 Info NLog, Version=5.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 5.2.3.1999. Product version: 5.2.3+a5ddef92a8afb22508450803e37c001f4a3ba52a. GlobalAssemblyCache: False
+2023-08-24 21:19:23.4960 Info Validating config: TargetNames=logfile, ConfigItems=12, FilePath=C:\Users\mseyi\source\repos\AHLYazilim\18 Haziran\Rediscuss\Rediscuss.WebApi\nlog.config
+2023-08-24 21:19:23.5195 Info Configuration initialized.

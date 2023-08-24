@@ -19,7 +19,7 @@ namespace Rediscuss.WebApi.Controllers
 		[HttpGet]
 		public async Task<IActionResult> GetAllSubredises()
 		{
-			var response = await _subredisBs.GetAllAsync();
+			var response = await _subredisBs.GetAllAsync("User");
 			return await SendResponse(response);
 		}
 
@@ -41,6 +41,13 @@ namespace Rediscuss.WebApi.Controllers
 		public async Task<IActionResult> GetByDescriptionAsync([FromQuery] string description)
 		{
 			var response = await _subredisBs.GetByDescriptionAsync(description);
+			return await SendResponse(response);
+		}
+
+		[HttpGet("getSuggestion")]
+		public async Task<IActionResult> GetSuggestionAsync([FromQuery] int userId)
+		{
+			var response = await _subredisBs.GetSuggestionAsync(userId, "Joins");
 			return await SendResponse(response);
 		}
 

@@ -14,6 +14,7 @@ namespace Rediscuss.Business.Profiles
         public SubredisProfile()
         {
             CreateMap<Subredis, SubredisGetDto>()
+                .ForMember(dest => dest.SubredisImage, opt => opt.MapFrom(src => src.Base64Picture))
                 .ForMember(dest => dest.CreatedBy, opt => opt.MapFrom(src => src.User.UserId));
             CreateMap<SubredisPostDto, Subredis>();
         }

@@ -20,19 +20,19 @@ namespace Rediscuss.WebApi.Controllers
 		[HttpGet("{id}")]
 		public async Task<IActionResult> GetByIdAsync([FromRoute] int id)
 		{
-			var response = await _commentBs.GetByIdAsync(id);
+			var response = await _commentBs.GetByIdAsync(id, "User");
 			return await SendResponse(response);
 		}
 
 		[HttpGet("getByPostId")]
 		public async Task<IActionResult> GetByPostIdAsync([FromQuery] int postId)
 		{
-			var response = await _commentBs.GetByPostIdAsync(postId);
+			var response = await _commentBs.GetByPostIdAsync(postId, "User");
 			return await SendResponse(response);
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> GetByBodyAsync([FromBody] CommentPostDto dto)
+		public async Task<IActionResult> AddCommentAsync([FromBody] CommentPostDto dto)
 		{
 			var response = await _commentBs.AddCommentAsync(dto);
 			return await SendResponse(response);

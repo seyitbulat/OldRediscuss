@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Infrastructure.Utilities.ApiResponses;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 using Rediscuss.Business.CustomExceptions;
 using Rediscuss.Business.Interfaces;
 using Rediscuss.DataAccsess.Interfaces;
@@ -36,11 +37,13 @@ namespace Rediscuss.Business.Implementations
 		{
 			if (id <= 0)
 				throw new BadRequestException("Id cannot be negative");
-
+			var patchDoc = new JsonPatchDocument<Subredis>();
 			var subredis = await _repo.GetByIdAsync(id);
 			if (subredis != null)
 			{
-				await _repo.DeleteAsync(subredis);
+				patchDoc.Replace(e => e.IsActive, false);
+				patchDoc.ApplyTo(subredis);
+				await _repo.PatchAsync(subredis);
 				return ApiResponse<NoData>.Success(StatusCodes.Status200OK);
 			}
 			throw new NotFoundException("No suitable subredis was found based on the ID entered.");
@@ -49,9 +52,10 @@ namespace Rediscuss.Business.Implementations
 		public async Task<ApiResponse<List<SubredisGetDto>>> GetAllAsync(params string[] includeList)
 		{
 			var subredis = await _repo.GetAllAsync(includeList: includeList);
-			if(subredis != null)
+			var filtered = subredis.Where(e => e.IsActive == true).ToList();
+			if(filtered != null)
 			{
-				var dtoList = _mapper.Map<List<SubredisGetDto>>(subredis);
+				var dtoList = _mapper.Map<List<SubredisGetDto>>(filtered);
 				return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dtoList);
 			}
 			throw new NotFoundException("Subredis not found");
@@ -63,9 +67,10 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("Enter a description");
 
 			var subredises = await _repo.GetByDescriptionAsync(description, includeList);
-			if (subredises != null)
+			var filtered = subredises.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
+				var dto = _mapper.Map<List<SubredisGetDto>>(filtered);
 				return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Subredis not found");
@@ -97,12 +102,26 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("Enter a name");
 
 			var subredises = await _repo.GetByNameAsync(name, includeList);
-			if (subredises != null)
+			var filtered = subredises.Where(e => e.IsActive == true).ToList();
+			if (filtered != null)
 			{
-				var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
+				var dto = _mapper.Map<List<SubredisGetDto>>(filtered);
 				return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dto);
 			}
 			throw new NotFoundException("Subredis not found");
 		}
-	}
+
+		public async Task<ApiResponse<List<SubredisGetDto>>> GetSuggestionAsync(int userId, params string[] includeList)
+		{
+			var subredises = await _repo.GetSuggestionAsync(userId, includeList);
+			var filtered = subredises.Where(e => e.IsActive == true).ToList();
+			if (subredises != null)
+            {
+                var dto = _mapper.Map<List<SubredisGetDto>>(subredises);
+                return ApiResponse<List<SubredisGetDto>>.Success(StatusCodes.Status200OK, dto);
+            }
+            throw new NotFoundException("Subredis not found");
+        }
+
+    }
 }

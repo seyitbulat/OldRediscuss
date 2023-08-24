@@ -19,8 +19,11 @@ namespace Rediscuss.Business.Profiles
 				
 			CreateMap<UserPostDto, User>();
 			//.ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => Convert.FromBase64String(src.Base64Picture)));
+			CreateMap<UserSignupDto, User>();
 			CreateMap<UserPutDto, User>();
-				//.ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => Convert.FromBase64String(src.Base64Picture)));
+			//.ForMember(dest => dest.UserImage, opt => opt.MapFrom(src => Convert.FromBase64String(src.Base64Picture)));
+
+			CreateMap<UserSetUpDto, User>();
 		}
     }
 }

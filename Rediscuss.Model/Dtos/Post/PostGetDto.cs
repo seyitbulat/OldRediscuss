@@ -1,4 +1,6 @@
-﻿using Rediscuss.Model.Dtos.Subredis;
+﻿using Rediscuss.Model.Dtos.Comment;
+using Rediscuss.Model.Dtos.PostImageDto;
+using Rediscuss.Model.Dtos.Subredis;
 
 namespace Rediscuss.Model.Dtos.Post
 {
@@ -14,10 +16,15 @@ namespace Rediscuss.Model.Dtos.Post
 
 
 		
-        public string? PostPicture { get; set; }
-        public string? ImageRoute { get; set; }
+        //public string? PostPicture { get; set; }
+        //public string? ImageRoute { get; set; }
 
         public string SubredisName { get; set; }
+		public string PostedByImage { get; set; }
 		public string PostedBy { get; set; }
+
+        public List<CommentGetDto> Comments { get; set; }
+		public List<PostImageGetDto> PostImages { get; set; }
+
     }
 }

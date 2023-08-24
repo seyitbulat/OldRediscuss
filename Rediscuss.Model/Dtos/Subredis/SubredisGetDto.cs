@@ -12,6 +12,7 @@ namespace Rediscuss.Model.Dtos.Subredis
 		public string SubredisDescription { get; set; }
 		public DateTime CreatedAt { get; set; }
 		public int CreatedBy { get; set; }
+		public string? SubredisImage { get; set; }
 
         public List<PostGetDto> Posts { get; set; }
     }

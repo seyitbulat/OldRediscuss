@@ -10,7 +10,8 @@ namespace Rediscuss.Business.Profiles
         {
 			CreateMap<Post, PostGetDto>()
 				.ForMember(dest => dest.SubredisName, opt => opt.MapFrom(src => src.Subredis.SubredisName))
-				.ForMember(dest => dest.PostedBy, opt => opt.MapFrom(src => src.User.Username));
+				.ForMember(dest => dest.PostedBy, opt => opt.MapFrom(src => src.User.Username))
+				.ForMember(dest => dest.PostedByImage, opt => opt.MapFrom(src => src.User.Base64Picture));
 			CreateMap<PostPostDto, Post>();
 		}
     }

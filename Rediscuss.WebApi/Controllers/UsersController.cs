@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Mvc;
 using Rediscuss.Business.Interfaces;
+using Rediscuss.DataAccsess.Interfaces;
 using Rediscuss.Model.Dtos.User;
 using Rediscuss.Model.Entities;
 using System.Security.Claims;
@@ -18,13 +19,18 @@ namespace Rediscuss.WebApi.Controllers
     {
         private readonly IUserBs _userBs;
         private readonly IConfiguration _configuration;
-        private readonly IWebHostEnvironment _webHost;
 
-        public UsersController(IUserBs userBs, IConfiguration configuration, IWebHostEnvironment webHost)
+        public UsersController(IUserBs userBs, IConfiguration configuration)
         {
             _userBs = userBs;
             _configuration = configuration;
-            _webHost = webHost;
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllAsync()
+        {
+            var response = await _userBs.GetAllUsers();
+            return await SendResponse(response);
         }
 
         [AllowAnonymous]
@@ -50,6 +56,22 @@ namespace Rediscuss.WebApi.Controllers
 
             return await SendResponse(response);
         }
+
+        [HttpPost("adminLogin")]
+        public async Task<IActionResult> AdminLogin([FromBody] UserLoginDto dto)
+        {
+            var response = await _userBs.AdminLoginAsync(dto.UserName, dto.Password);
+
+            var claims = new List<Claim>();
+			claims.Add(new Claim("userName", response.Data.Username));
+			claims.Add(new Claim("userId", response.Data.UserId.ToString()));
+			claims.Add(new Claim(ClaimTypes.Role, UserRoles.Admin));
+
+			var accessToken = new JwtGenerator(_configuration).CreateAccessToken(claims);
+			response.Data.Token = accessToken.Token;
+
+			return await SendResponse(response);
+		}
 
         [HttpPost("signup")]
         public async Task<IActionResult> SignupAsync([FromBody] UserSignupDto dto)
@@ -84,9 +106,17 @@ namespace Rediscuss.WebApi.Controllers
         [HttpPatch]
         public async Task<IActionResult> PatchAsync([FromForm] UserPutDto dto)
         {
+
             var response = await _userBs.PatchUserAsync(dto);
 
             return await SendResponse(response);
+        }
+
+        [HttpPatch("profileSetup")]
+        public async Task<IActionResult> ProfileSetupAsync([FromForm] UserSetUpDto dto)
+        {
+            var respnse = await _userBs.ProfileSetupAsync(dto);
+            return await SendResponse(respnse);
         }
     }
 }

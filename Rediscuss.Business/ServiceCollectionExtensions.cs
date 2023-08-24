@@ -32,7 +32,10 @@ namespace Rediscuss.Business
 			service.AddScoped<IPostImageRepository, PostImageRepository>();
 			service.AddScoped<IPostImageBs, PostImageBs>();
 
-			service.AddScoped<ILoggerBs, LoggerBs>();
+            service.AddScoped<ICommentRepository, CommentRepository>();
+            service.AddScoped<ICommentBs, CommentBs>();
+
+            service.AddScoped<ILoggerBs, LoggerBs>();
 			LogManager.LoadConfiguration(String.Concat(Directory.GetCurrentDirectory(),"/nlog.config"));
 			service.ConfigureLoggerService();
 
