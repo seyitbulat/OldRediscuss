@@ -1,7 +1,12 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Infrastructure.Utilities.ApiResponses;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rediscuss.Business.Interfaces;
+using Rediscuss.Model.Dtos.Join;
 using Rediscuss.Model.Dtos.PostImageDto;
+using Rediscuss.Model.Entities;
+using System.Data;
 
 namespace Rediscuss.WebApi.Controllers
 {
@@ -16,6 +21,13 @@ namespace Rediscuss.WebApi.Controllers
             _postImageBs = postImageBs;
         }
 
+        #region SWAGGER DOC
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ApiResponse<List<PostImageGetDto>>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ApiResponse<NoData>))]
+        #endregion
         [HttpGet("getByPostId/{postId}")]
         public async Task<IActionResult> GetByPostIdAsync([FromRoute] int postId)
         {
@@ -23,6 +35,13 @@ namespace Rediscuss.WebApi.Controllers
             return await SendResponse(response);
         }
 
+        #region SWAGGER DOC
+        [Produces("application/json", "text/plain")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ApiResponse<PostImageGetDto>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(ApiResponse<NoData>))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(ApiResponse<NoData>))]
+        #endregion
         [HttpPost]
         public async Task<IActionResult> AddPostImageAsync([FromForm]  PostImageUploadDto dto,[FromQuery] int postId)
         {

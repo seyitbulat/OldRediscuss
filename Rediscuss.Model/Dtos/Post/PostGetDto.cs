@@ -22,6 +22,7 @@ namespace Rediscuss.Model.Dtos.Post
         public string SubredisName { get; set; }
 		public string PostedByImage { get; set; }
 		public string PostedBy { get; set; }
+        public string PostedByContentType { get; set; }
 
         public List<CommentGetDto> Comments { get; set; }
 		public List<PostImageGetDto> PostImages { get; set; }

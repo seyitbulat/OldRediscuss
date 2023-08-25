@@ -2,7 +2,7 @@
 using Rediscuss.Model.Dtos.User;
 using Rediscuss.Model.Entities;
 
-namespace Rediscuss.Business.Validators.DtoValidators
+namespace Rediscuss.Business.Validators
 {
     public class UserValidator : AbstractValidator<UserPostDto>
     {
@@ -11,7 +11,7 @@ namespace Rediscuss.Business.Validators.DtoValidators
             RuleFor(user => user.Email).EmailAddress().WithMessage("You have to write an email");
             RuleFor(user => user.Username).NotNull().NotEmpty().MinimumLength(3);
             RuleFor(user => user.Password).NotNull().NotEmpty().MinimumLength(3);
- 
+
         }
     }
 }

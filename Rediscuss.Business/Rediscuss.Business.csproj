@@ -23,4 +23,9 @@
     <ProjectReference Include="..\Rediscuss.Model\Rediscuss.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="FIlters\" />
+    <Folder Include="Validations\" />
+  </ItemGroup>
+
 </Project>

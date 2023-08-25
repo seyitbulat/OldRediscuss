@@ -9,9 +9,6 @@ using Microsoft.AspNetCore.Http;
 using NLog;
 using FluentValidation;
 using Rediscuss.Business.Validators;
-using System.ComponentModel.DataAnnotations;
-using Rediscuss.Business.FIlters;
-using Rediscuss.Business.Validators.DtoValidators;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Hosting;
 
@@ -44,6 +41,7 @@ namespace Rediscuss.Business.Implementations
 				throw new BadRequestException("This username is already in use");
 			if (usernames.Where(u => u.Email == dto.Email).Count() > 0)
 				throw new BadRequestException("This email is already in use");
+
 
 			if (dto != null)
 			{

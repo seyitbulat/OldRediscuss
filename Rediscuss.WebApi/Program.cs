@@ -1,14 +1,9 @@
-using Autofac.Core;
-using FluentValidation.AspNetCore;
-using Microsoft.Extensions.Configuration;
 using Rediscuss.Business;
 using Rediscuss.WebApi.Middleware;
-using System.Reflection;
-using System.Text.Json.Serialization;
 
 namespace Rediscuss.WebApi
 {
-	public class Program
+    public class Program
 	{
 		public static void Main(string[] args)
 		{
